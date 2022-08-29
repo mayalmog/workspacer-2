@@ -4,7 +4,7 @@ export const weeks = [
     startDate: "2022-07-28",
     days: [
       {
-        day: "Sunday",
+        dayName: "Sunday",
         date: "2022-07-28",
         desks: [
           {

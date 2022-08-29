@@ -1,7 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 export const LoginPage = () => {
   const [user, setUser] = useState(null);
   const [admin, setAdmin] = useState({ email: "", password: "" });
+  // TODO: const users = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    //TODO: dispatch load users
+    console.log("hi");
+  }, []);
 
   const handleChange = ({ target }) => {
     const { value } = target;
@@ -27,6 +35,7 @@ export const LoginPage = () => {
       <h1>Login to your account</h1>
       <form className="flex column justify-center align-center">
         <label htmlFor="users">Choose you name:</label>
+        {/* TODO: map  users into select options*/}
         <select name="users" id="users" onChange={handleChange}>
           <option value="default">Choose user:</option>
           <option value="May Almog">May Almog</option>
