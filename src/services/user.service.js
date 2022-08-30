@@ -4,6 +4,7 @@ import { storageService } from "./storage.service";
 
 export const userService = {
   query,
+  validateAdmin,
 };
 
 const KEY = "usersDB";
@@ -13,6 +14,12 @@ _createUsers();
 function query() {
   // return Promise.resolve(gUsers);
   return gUsers;
+}
+
+function validateAdmin(user) {
+  if (user.email === "admin.fireblocks.com" && user.password === "123456789") {
+    return true;
+  }
 }
 
 function _createUsers() {

@@ -1,11 +1,18 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setUsers } from "../store/user/userSlice";
+import { useNavigate } from "react-router-dom";
+import { setUsers, setLoggedinUser } from "../store/user/userSlice";
+import { userService } from "../services/user.service";
 export const LoginPage = () => {
   const [user, setUser] = useState(null);
-  const [admin, setAdmin] = useState({ email: "", password: "" });
+  const [admin, setAdmin] = useState({
+    email: "",
+    password: "",
+    name: "Admin",
+  });
   const users = useSelector((state) => state.user.users);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(setUsers());
@@ -14,6 +21,12 @@ export const LoginPage = () => {
   const handleChange = ({ target }) => {
     const { value } = target;
     setUser(value);
+  };
+
+  const onLoggedinUser = (ev) => {
+    ev.preventDefault();
+    navigate("/desk");
+    dispatch(setLoggedinUser(user));
   };
 
   const handleChangeAdmin = ({ target }) => {
@@ -26,12 +39,16 @@ export const LoginPage = () => {
     }
   };
 
+  const onLoggedinAdmin = (ev) => {
+    ev.preventDefault();
+    if (userService.validateAdmin(admin)) {
+      navigate("/desk");
+      dispatch(setLoggedinUser(admin));
+    }
+  };
+
   return (
     <section className="login-page flex column justify-center align-center">
-      <p>current user:</p>
-      <pre>{JSON.stringify(user, null, 2)}</pre>
-      <p>curren admin:</p>
-      <pre>{JSON.stringify(admin, null, 2)}</pre>
       <h1>Login to your account</h1>
       <form className="flex column justify-center align-center">
         <label htmlFor="users">Choose you name:</label>
@@ -45,7 +62,7 @@ export const LoginPage = () => {
             );
           })}
         </select>
-        <button>Login</button>
+        <button onClick={onLoggedinUser}>Login</button>
       </form>
 
       <hr />
@@ -63,7 +80,7 @@ export const LoginPage = () => {
           placeholder="Password"
           onChange={handleChangeAdmin}
         />
-        <button>Login as Admin</button>
+        <button onClick={onLoggedinAdmin}>Login as Admin</button>
       </form>
     </section>
   );
