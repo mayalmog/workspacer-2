@@ -35,11 +35,8 @@ export const LoginPage = () => {
       <h1>Login to your account</h1>
       <form className="flex column justify-center align-center">
         <label htmlFor="users">Choose you name:</label>
-        {/* TODO: map  users into select options*/}
         <select name="users" id="users" onChange={handleChange}>
           <option value="default">Choose user:</option>
-          {/* <option value="May Almog">May Almog</option>
-          <option value="Ziv Bryk">Ziv Bryk</option> */}
           {users.map((user) => {
             return (
               <option value={user.fullname} key={user.id}>

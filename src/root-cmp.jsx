@@ -1,5 +1,6 @@
-import { LoginPage } from "./views/login-page";
-// import { DeskPage } from "./views/desk-page";
+import { Route, Routes, useLocation } from "react-router-dom";
+import routes from "./routes";
+
 import { AppHeader } from "./cmps/app-header";
 
 export const RootCmp = () => {
@@ -7,8 +8,16 @@ export const RootCmp = () => {
     <section className="root-cmp">
       <AppHeader />
       <main>
-        <LoginPage />
-        {/* <DeskPage /> */}
+        <Routes>
+          {routes.map((route) => (
+            <Route
+              key={route.path}
+              exact
+              element={route.element}
+              path={route.path}
+            />
+          ))}
+        </Routes>
       </main>
     </section>
   );
