@@ -43,20 +43,20 @@ export const users = [
   },
   {
     id: "user-8",
-    fullname: "May Almog",
-    email: "mayalmog@gmail.com",
+    fullname: "Ruth Stout",
+    email: "ruth.stout@gmail.com",
     avatar: "url",
   },
   {
     id: "user-9",
-    fullname: "May Almog",
-    email: "mayalmog@gmail.com",
+    fullname: "Linus Torvalds",
+    email: "linus.torvalds@gmail.com",
     avatar: "url",
   },
   {
     id: "user-10",
-    fullname: "May Almog",
-    email: "mayalmog@gmail.com",
+    fullname: "Satoshi Nakamoto",
+    email: "satoshi.nakamoto@gmail.com",
     avatar: "url",
   },
 ];

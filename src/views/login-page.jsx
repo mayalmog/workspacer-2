@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { setUsers } from "../store/user/userSlice";
 export const LoginPage = () => {
   const [user, setUser] = useState(null);
   const [admin, setAdmin] = useState({ email: "", password: "" });
-  // TODO: const users = useSelector((state) => state.users);
+  const users = useSelector((state) => state.user.users);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    //TODO: dispatch load users
-    console.log("hi");
+    dispatch(setUsers());
   }, []);
 
   const handleChange = ({ target }) => {
@@ -28,7 +28,7 @@ export const LoginPage = () => {
 
   return (
     <section className="login-page flex column justify-center align-center">
-      <p>curren user:</p>
+      <p>current user:</p>
       <pre>{JSON.stringify(user, null, 2)}</pre>
       <p>curren admin:</p>
       <pre>{JSON.stringify(admin, null, 2)}</pre>
@@ -38,8 +38,15 @@ export const LoginPage = () => {
         {/* TODO: map  users into select options*/}
         <select name="users" id="users" onChange={handleChange}>
           <option value="default">Choose user:</option>
-          <option value="May Almog">May Almog</option>
-          <option value="Ziv Bryk">Ziv Bryk</option>
+          {/* <option value="May Almog">May Almog</option>
+          <option value="Ziv Bryk">Ziv Bryk</option> */}
+          {users.map((user) => {
+            return (
+              <option value={user.fullname} key={user.id}>
+                {user.fullname}
+              </option>
+            );
+          })}
         </select>
         <button>Login</button>
       </form>
