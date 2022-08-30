@@ -3,7 +3,7 @@ export const users = [
     id: "user-1",
     fullname: "May Almog",
     email: "mayalmog@gmail.com",
-    avatar: "url",
+    imgUrl: "/assets/images/avatars/may.png",
   },
   {
     id: "user-2",

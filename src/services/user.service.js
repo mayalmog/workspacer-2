@@ -20,6 +20,7 @@ function validateAdmin(user) {
   if (user.email === "admin.fireblocks.com" && user.password === "123456789") {
     return true;
   }
+  return false;
 }
 
 function _createUsers() {

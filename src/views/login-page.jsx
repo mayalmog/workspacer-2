@@ -6,9 +6,9 @@ import { userService } from "../services/user.service";
 export const LoginPage = () => {
   const [user, setUser] = useState(null);
   const [admin, setAdmin] = useState({
+    name: "Admin",
     email: "",
     password: "",
-    name: "Admin",
   });
   const users = useSelector((state) => state.user.users);
   const dispatch = useDispatch();

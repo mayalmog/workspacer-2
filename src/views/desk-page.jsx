@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 export const DeskPage = () => {
   const loggedinUser = useSelector((state) => state.user.loggedinUser);
 
-  //TODO: create desk store
   const days = ["Sunday", "Monday", "Tuesday"];
   return (
     <section className="desk-page">
