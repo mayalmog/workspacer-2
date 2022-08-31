@@ -6,9 +6,13 @@ export const userService = {
   query,
   validateAdmin,
   onLoginUser,
+  getUserByEmail,
+  saveLoggedinUser,
+  getLoggedinUser,
 };
 
 const KEY = "usersDB";
+const loggedinUserKey = "loggedinUser";
 let gUsers = [];
 _createUsers();
 
@@ -16,8 +20,20 @@ function query() {
   return gUsers;
 }
 
+function getUserByEmail(userEmail) {
+  return gUsers.find((user) => user.email === userEmail);
+}
+
 function onLoginUser(userName) {
   return gUsers.find((user) => user.fullname === userName);
+}
+
+function saveLoggedinUser(loggedinUser) {
+  storageService.saveToStorage(loggedinUserKey, loggedinUser);
+}
+
+function getLoggedinUser() {
+  return storageService.loadFromStorage(loggedinUserKey);
 }
 
 function validateAdmin(adminInput, passwordInput) {

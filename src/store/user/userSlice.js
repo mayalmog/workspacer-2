@@ -5,7 +5,7 @@ export const userSlice = createSlice({
   name: "user",
   initialState: {
     users: [],
-    loggedinUser: null,
+    loggedinUser: userService.getLoggedinUser() || null,
   },
   reducers: {
     setUsers: (state) => {
@@ -13,6 +13,7 @@ export const userSlice = createSlice({
     },
     setLoggedinUser: (state, action) => {
       state.loggedinUser = action.payload;
+      userService.saveLoggedinUser(action.payload);
     },
     logoutUser: (state) => {
       state.loggedinUser = null;

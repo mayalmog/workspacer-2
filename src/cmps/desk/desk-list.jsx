@@ -11,7 +11,13 @@ export const DeskList = ({ currDay }) => {
       {Object.keys(currDay).length && (
         <div className="desk-previews flex flex-wrap">
           {currDay.desks.map((desk, idx) => {
-            return <DeskPreview desk={desk} />;
+            return (
+              <DeskPreview
+                desk={desk}
+                currDay={currDay}
+                key={`desk-preview-${desk.id}`}
+              />
+            );
           })}
         </div>
       )}

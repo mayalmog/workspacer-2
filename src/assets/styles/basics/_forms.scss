@@ -89,6 +89,10 @@ textarea {
     }
   }
 }
+.book-btn {
+  font-family: OpenSans-Semibold;
+}
+
 .dialog-close-btn {
   border-radius: 50%;
   color: darken(saturate($clr4, 8.19), 9.8);
