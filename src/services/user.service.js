@@ -38,11 +38,11 @@ function getLoggedinUser() {
 
 function validateAdmin(adminInput, passwordInput) {
   if (
-    adminInput.email === "admin.fireblocks.com" &&
+    adminInput.email === "admin@fireblocks.com" &&
     passwordInput.password === "123456789"
-  ) {
+  )
     return true;
-  }
+
   return false;
 }
 

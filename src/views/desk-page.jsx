@@ -5,11 +5,10 @@ import { deskService } from "../services/desk.service";
 import { DeskList } from "../cmps/desk/desk-list";
 
 export const DeskPage = () => {
-  // const loggedinUser = useSelector((state) => state.user.loggedinUser);
+  const loggedinUser = useSelector((state) => state.user.loggedinUser);
   const week = useSelector((state) => state.desk.week);
   const [currDayName, setCurrDayName] = useState("Sunday");
   const currDay = deskService.getCurrDay(week, currDayName);
-  // const currDay = week.days.find((day) => day.dayName === currDayName);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,10 +19,18 @@ export const DeskPage = () => {
   const onSetCurrDay = (dayName) => {
     setCurrDayName(dayName);
   };
+
+  const onAddNextWeek = () => {
+    deskService.addNextWeek();
+  };
+
   return (
     <section className="desk-page">
-      <h3>Desk Page</h3>
-      {/* <pre>{JSON.stringify(week, null, 2)}</pre> */}
+      {loggedinUser.email === "admin@fireblocks.com" && (
+        <button className="btn btn-light" onClick={onAddNextWeek}>
+          Add new week
+        </button>
+      )}
       <div>
         {Object.keys(week).length &&
           week.days.map((day, idx) => (

@@ -5,8 +5,8 @@ export const DeskList = ({ currDay }) => {
   const week = useSelector((state) => state.desk.week);
 
   return (
-    <section className="desk-list">
-      <p>Desk-list</p>
+    <section className="desk-list flex column justify-center align-center">
+      <p>{currDay.date}</p>
       {/* <pre>{JSON.stringify(currDay.desks, null, 2)}</pre> */}
       {Object.keys(currDay).length && (
         <div className="desk-previews flex flex-wrap">

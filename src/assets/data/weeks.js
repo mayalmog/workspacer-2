@@ -1,6 +1,6 @@
 export const weeks = [
   {
-    id: "123",
+    id: "1DFasd2KIU",
     startDate: "2022-08-28",
     days: [
       {
@@ -206,6 +206,44 @@ export const weeks = [
               email: " pablo.picasso@gmail.com",
               avatar: "url",
             },
+          },
+          {
+            id: "6",
+            user: null,
+          },
+          {
+            id: "7",
+            user: null,
+          },
+          {
+            id: "8",
+            user: null,
+          },
+        ],
+      },
+      {
+        dayName: "Friday",
+        date: "2022-09-2",
+        desks: [
+          {
+            id: "1",
+            user: null,
+          },
+          {
+            id: "2",
+            user: null,
+          },
+          {
+            id: "3",
+            user: null,
+          },
+          {
+            id: "4",
+            user: null,
+          },
+          {
+            id: "5",
+            user: null,
           },
           {
             id: "6",

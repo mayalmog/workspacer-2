@@ -1,5 +1,13 @@
 import { weeks } from "../assets/data/weeks";
-import { format, previousSunday, isSunday } from "date-fns";
+import {
+  add,
+  format,
+  previousSunday,
+  isSunday,
+  nextSunday,
+  parseISO,
+} from "date-fns";
+import { utilService } from "./util.service";
 
 export const deskService = {
   getWeekByStartDate,
@@ -7,10 +15,12 @@ export const deskService = {
   getCurrDay,
   bookDesk,
   getCancelledBooking,
+  addNextWeek,
 };
 
 let gWeeks = [];
 _createWeeks();
+getNewDaysArray();
 
 function getWeekByStartDate(startDate) {
   return gWeeks.find((week) => week.startDate === startDate);
@@ -36,6 +46,7 @@ function getCurrDay(week, currDayName) {
 }
 
 function bookDesk(week, currDay, updatedDesk) {
+  //TODO: enable admin to book multiple desks
   let updatedWeek = JSON.parse(JSON.stringify(week));
   updatedWeek.days.forEach((day, dayIdx) => {
     if (day.dayName === currDay.dayName) {
@@ -60,4 +71,92 @@ function getCancelledBooking(week, currDay, updatedDesk) {
     }
   });
   return updatedWeek;
+}
+
+function addNextWeek() {
+  const newWeek = {
+    id: utilService.makeId(),
+    startDate: getNextWeekStartDate(),
+    days: getNewDaysArray(),
+  };
+  gWeeks.push(newWeek);
+}
+
+function getNextWeekStartDate() {
+  const lastWeekStartDate = gWeeks[gWeeks.length - 1].startDate;
+  const newStartDate = nextSunday(new Date(lastWeekStartDate));
+  return format(newStartDate, "yyyy-MM-dd");
+}
+
+function getNewDaysArray() {
+  let days = [];
+  const startDate = getNextWeekStartDate();
+  for (let i = 0; i <= 5; i++) {
+    const dayTemplate = {
+      dayName: getDayNameByIdx(i),
+      date: getDayDateByIdx(i, startDate),
+      desks: [
+        {
+          id: "1",
+          user: null,
+        },
+        {
+          id: "2",
+          user: null,
+        },
+        {
+          id: "3",
+          user: null,
+        },
+        {
+          id: "4",
+          user: null,
+        },
+        {
+          id: "5",
+          user: null,
+        },
+        {
+          id: "6",
+          user: null,
+        },
+        {
+          id: "7",
+          user: null,
+        },
+        {
+          id: "8",
+          user: null,
+        },
+      ],
+    };
+    days.push(dayTemplate);
+  }
+  return days;
+}
+
+function getDayNameByIdx(i) {
+  switch (i) {
+    case 0:
+      return "Sunday";
+
+    case 1:
+      return "Monday";
+
+    case 2:
+      return "Tuesday";
+
+    case 3:
+      return "Wednesday";
+
+    case 4:
+      return "Thursday";
+
+    case 5:
+      return "Friday";
+  }
+}
+
+function getDayDateByIdx(i, startDate) {
+  return format(add(new Date(startDate), { days: i }), "yyyy-MM-dd");
 }

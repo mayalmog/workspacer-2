@@ -13,7 +13,7 @@ export const DeskPreview = ({ desk, currDay }) => {
     ) {
       console.log("You already have a desk!");
     } else {
-      console.log("You haven't booked a desk yet, let's book it!", desk);
+      console.log("You haven't booked a desk yet, let's book it!");
       let updatedDesk = JSON.parse(JSON.stringify(desk));
       updatedDesk.user = loggedinUser;
       dispatch(bookDesk({ updatedDesk, currDay }));
@@ -21,9 +21,20 @@ export const DeskPreview = ({ desk, currDay }) => {
   };
 
   const onRemoveBooking = () => {
-    if (desk.user === loggedinUser) {
+    if (showRemoveBtn) {
       dispatch(cancelBooking({ desk, currDay }));
+    } else {
+      console.log("You are not authorized to remove this booking");
     }
+  };
+
+  const showRemoveBtn = () => {
+    if (
+      desk.user === loggedinUser ||
+      desk.user.email === "admin@fireblocks.com"
+    )
+      return true;
+    return false;
   };
 
   return (
@@ -35,7 +46,7 @@ export const DeskPreview = ({ desk, currDay }) => {
           Book work station
         </button>
       )}
-      {desk.user === loggedinUser && (
+      {desk.user && showRemoveBtn && (
         <button className="btn remove-btn" onClick={onRemoveBooking}>
           Unbook
         </button>
