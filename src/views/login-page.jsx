@@ -59,7 +59,13 @@ export const LoginPage = () => {
 
       <FormControl fullWidth className="select">
         <InputLabel id="users">User</InputLabel>
-        <Select name="users" id="users" label="User" onChange={handleChange}>
+        <Select
+          name="users"
+          id="users"
+          label="User"
+          onChange={handleChange}
+          defaultValue=""
+        >
           {users.map((user) => {
             return (
               <MenuItem value={user.fullname} key={user.id}>

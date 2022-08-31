@@ -35,7 +35,13 @@ export const DeskPage = () => {
         <p>Choose week by start date:</p>
         <FormControl fullWidth className="select">
           <InputLabel id="weeks">Week</InputLabel>
-          <Select name="weeks" id="weeks" label="Week" onChange={handleChange}>
+          <Select
+            name="weeks"
+            id="weeks"
+            label="Week"
+            onChange={handleChange}
+            defaultValue=""
+          >
             {weeks.map((week) => {
               return (
                 <MenuItem value={week.startDate} key={week.id}>
