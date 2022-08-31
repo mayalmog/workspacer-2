@@ -1,15 +1,10 @@
-import { useSelector, useDispatch } from "react-redux";
 import { DeskPreview } from "./desk-preview";
 
 export const DeskList = ({ currDay }) => {
-  const week = useSelector((state) => state.desk.week);
-
   return (
     <section className="desk-list flex column justify-center align-center">
-      <p>{currDay.date}</p>
-      {/* <pre>{JSON.stringify(currDay.desks, null, 2)}</pre> */}
       {Object.keys(currDay).length && (
-        <div className="desk-previews flex flex-wrap">
+        <div className="desk-previews grid flex-wrap">
           {currDay.desks.map((desk, idx) => {
             return (
               <DeskPreview

@@ -13,11 +13,7 @@ export const weeks = [
           },
           {
             id: "2",
-            user: {
-              fullname: "May Almog",
-              email: "mayalmog@gmail.com",
-              imgUrl: "/assets/images/avatars/may.png",
-            },
+            user: null,
           },
           {
             id: "3",
@@ -55,19 +51,11 @@ export const weeks = [
           },
           {
             id: "2",
-            user: {
-              fullname: "May Almog",
-              email: "mayalmog@gmail.com",
-              imgUrl: "url",
-            },
+            user: null,
           },
           {
             id: "3",
-            user: {
-              fullname: "Michelangelo",
-              email: "michelangelo@gmail.com",
-              imgUrl: "url",
-            },
+            user: null,
           },
           {
             id: "4",
@@ -101,11 +89,7 @@ export const weeks = [
           },
           {
             id: "2",
-            user: {
-              fullname: "May Almog",
-              email: "mayalmog@gmail.com",
-              imgUrl: "/assets/images/avatars/may.png",
-            },
+            user: null,
           },
           {
             id: "3",
@@ -143,11 +127,7 @@ export const weeks = [
           },
           {
             id: "2",
-            user: {
-              fullname: "May Almog",
-              email: "mayalmog@gmail.com",
-              imgUrl: "/assets/images/avatars/may.png",
-            },
+            user: null,
           },
           {
             id: "3",
@@ -185,11 +165,7 @@ export const weeks = [
           },
           {
             id: "2",
-            user: {
-              fullname: "May Almog",
-              email: "mayalmog@gmail.com",
-              imgUrl: "/assets/images/avatars/may.png",
-            },
+            user: null,
           },
           {
             id: "3",
@@ -201,11 +177,7 @@ export const weeks = [
           },
           {
             id: "5",
-            user: {
-              fullname: "Pablo Picasso",
-              email: " pablo.picasso@gmail.com",
-              avatar: "url",
-            },
+            user: null,
           },
           {
             id: "6",

@@ -2,18 +2,23 @@
   padding-inline: 1rem;
   gap: 1rem;
   box-shadow: 0px 2px 15px 0px #b6b6b6;
+
   .header-logo {
     gap: 1rem;
-    img {
-      width: 80px;
-    }
+
     h1 {
       @include for-mobile-layout {
         display: none;
       }
     }
   }
-  .user-greeting {
-    font-family: OpenSans-Light;
+
+  .user-actions {
+    gap: 1rem;
+    p {
+      @include for-mobile-layout {
+        display: none;
+      }
+    }
   }
 }

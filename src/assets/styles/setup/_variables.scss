@@ -6,26 +6,29 @@ $clr2: #ebecf0; //List bgc
 
 //Font colors
 $clr3: #172b4d; //Main Font color
-$clr4: #5e6c84; //Sub font color
-$clr5: #97a0af; //Comments font color
+$clr4: #5e6c84;
+$clr5: #97a0af;
 
 //buttons
 $clr6: #0079bf; //Confirmation btn
-$clr7: #0065ff; //Homepage btn
-$clr8: #091e42; //Action btn (+add alpha 0.04)
-$clr9: #5aac44; //Login btn
+// $clr7: #0065ff; //Homepage btn-remove
+// $clr8: #091e42; //Action btn (+add alpha 0.04)-remove
+// $clr9: #5aac44; //Login btn-remove
 
 //Lables (+card due dates)
 $green: #61bd4f;
-$yellow: #f2d600;
-$orange: #ff9f1a;
+$logo-yellow: #f5bc00;
+$logo-orange: #eb7902;
 $red: #eb5a46; // + Alert btn
-$purple: #c377e0;
-$blue: #0079bf;
-$sky: #0dc5e2;
-$lime: #51e898;
-$pink: #ff78cb;
-$black: #344563;
+// $purple: #c377e0;
+// $blue: #0079bf;
+// $sky: #0dc5e2;
+// $lime: #51e898;
+// $pink: #ff78cb;
+// $black: #344563;
+$logo-purple: #6c19ff;
+$logo-light-purple: #a74aff;
+$logo-red: #ec0001;
 
 // Breakpoints
 $mobile-breakpoint: 460px;

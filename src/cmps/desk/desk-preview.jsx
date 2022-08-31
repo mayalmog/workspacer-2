@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import { MemberAvatar } from "../member-avatar";
 import { bookDesk, cancelBooking } from "../../store/desk/deskSlice";
 
 export const DeskPreview = ({ desk, currDay }) => {
@@ -21,32 +22,38 @@ export const DeskPreview = ({ desk, currDay }) => {
   };
 
   const onRemoveBooking = () => {
-    if (showRemoveBtn) {
+    if (isRemoveBtnShown) {
       dispatch(cancelBooking({ desk, currDay }));
     } else {
       console.log("You are not authorized to remove this booking");
     }
   };
 
-  const showRemoveBtn = () => {
-    if (
-      desk.user === loggedinUser ||
-      desk.user.email === "admin@fireblocks.com"
-    )
-      return true;
-    return false;
+  const isLoggedinUser = () => {
+    return desk.user?.fullname === loggedinUser.fullname;
+  };
+
+  const isRemoveBtnShown = () => {
+    return (
+      desk.user === loggedinUser || desk.user?.email === "admin@fireblocks.com"
+    );
   };
 
   return (
-    <section className="desk-preview flex column align-center">
-      <p>{desk.id}</p>
+    <section
+      className={`${desk.user ? "booked" : ""} ${
+        isLoggedinUser() ? "marked" : ""
+      } desk-preview flex column align-center justify-center`}
+    >
+      <p className="desk-id">Desk-{desk.id}</p>
+      {desk.user && <MemberAvatar size={"32"} user={desk.user} />}
       {desk.user && <p>{desk.user.fullname}</p>}
       {!desk.user && (
-        <button className="btn book-btn" onClick={onBookDesk}>
-          Book work station
+        <button className="btn btn-primary" onClick={onBookDesk}>
+          Book
         </button>
       )}
-      {desk.user && showRemoveBtn && (
+      {isRemoveBtnShown() && (
         <button className="btn remove-btn" onClick={onRemoveBooking}>
           Unbook
         </button>

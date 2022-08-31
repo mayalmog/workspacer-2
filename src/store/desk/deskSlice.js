@@ -11,9 +11,11 @@ export const deskSlice = createSlice({
     setWeeks: (state) => {
       state.weeks = deskService.getWeeks();
     },
+
     setWeek: (state, action) => {
       state.week = deskService.getWeekByStartDate(action.payload);
     },
+
     bookDesk: (state, action) => {
       const updatedWeek = deskService.bookDesk(
         state.week,
@@ -22,6 +24,7 @@ export const deskSlice = createSlice({
       );
       state.week = updatedWeek;
     },
+
     cancelBooking: (state, action) => {
       const updatedWeek = deskService.getCancelledBooking(
         state.week,

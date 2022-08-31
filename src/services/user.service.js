@@ -50,9 +50,7 @@ function _createUsers() {
   gUsers = storageService.loadFromStorage(KEY);
   if (!gUsers || !gUsers.length) {
     gUsers = users;
-    _saveUsersToStorage();
   }
-  // gUsers = users;
 }
 
 function _saveUsersToStorage() {

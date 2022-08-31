@@ -12,12 +12,6 @@ export const DeskPage = () => {
   const currDay = deskService.getCurrDay(week, currDayName);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const weekStartDate = deskService.getWeekStartDate();
-    dispatch(setWeeks());
-    dispatch(setWeek(weekStartDate));
-  }, [dispatch]);
-
   const onSetCurrDay = (dayName) => {
     setCurrDayName(dayName);
   };
@@ -34,10 +28,10 @@ export const DeskPage = () => {
   };
 
   return (
-    <section className="desk-page">
+    <section className="desk-page flex column justify-center align-center">
       <div>
-        <form className="flex column justify-center align-center">
-          <label htmlFor="weeks">Choose week by start date:</label>
+        <form className="flex  justify-center align-center">
+          <p htmlFor="weeks">Choose week by start date:</p>
           <select name="weeks" id="weeks" onChange={handleChange}>
             <option value="default">Choose week:</option>
             {weeks.map((week) => {
@@ -55,11 +49,13 @@ export const DeskPage = () => {
           </button>
         )}
       </div>
-      <div>
+      <div className="weekday-btns flex justify-center align-center">
         {Object.keys(week).length &&
           week.days.map((day, idx) => (
             <button
-              className="btn btn-light"
+              className={`${
+                day.dayName === currDayName ? "currDay" : ""
+              } btn btn-light`}
               key={`day-${idx}`}
               onClick={() => onSetCurrDay(day.dayName)}
             >
@@ -67,6 +63,7 @@ export const DeskPage = () => {
             </button>
           ))}
       </div>
+      <p>{currDay.date}</p>
       <DeskList currDay={currDay} />
     </section>
   );

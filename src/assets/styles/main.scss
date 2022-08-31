@@ -9,7 +9,12 @@
 @import "basics/base";
 @import "basics/forms";
 
-//Cmps
+// Views
+@import "views/login-page";
+@import "views/desk-page";
+
+// Cmps
 @import "cmps/app-header";
 @import "cmps/desk/desk-list";
 @import "cmps/desk/desk-preview";
+@import "cmps/member-avatar";

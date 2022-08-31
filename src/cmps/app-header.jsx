@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logoutUser } from "../store/user/userSlice";
+import { MemberAvatar } from "../cmps/member-avatar";
 
 import WorkspacerLogo from "../assets/img/workspacer-logo.svg";
 export const AppHeader = () => {
@@ -21,11 +22,10 @@ export const AppHeader = () => {
         <h1>Workspacer</h1>
       </div>
       {loggedinUser && (
-        <div className="user-actions flex align-center space-between full">
-          <div className="user-greeting">
-            <h3>Hello {loggedinUser.fullname}</h3>
-          </div>
-          <button className="btn" onClick={onLogout}>
+        <div className="user-actions flex align-center justify-end full">
+          <MemberAvatar size={"32"} user={loggedinUser} />
+          <p> {loggedinUser.fullname}</p>
+          <button className="btn btn-primary" onClick={onLogout}>
             Logout
           </button>
         </div>

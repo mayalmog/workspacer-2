@@ -11,10 +11,12 @@ export const userSlice = createSlice({
     setUsers: (state) => {
       state.users = userService.query();
     },
+
     setLoggedinUser: (state, action) => {
       state.loggedinUser = action.payload;
       userService.saveLoggedinUser(action.payload);
     },
+
     logoutUser: (state) => {
       state.loggedinUser = null;
     },

@@ -1,3 +1,4 @@
+import { Select } from "@mui/material";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -55,7 +56,9 @@ export const LoginPage = () => {
   return (
     <section className="login-page flex column justify-center align-center">
       <form className="user-login-form flex column justify-center align-center">
-        <label htmlFor="users">Choose you name:</label>
+        {/* <label htmlFor="users">Choose you name:</label> */}
+        <h5>Choose you name:</h5>
+
         <select name="users" id="users" onChange={handleChange}>
           <option value="default">Choose user:</option>
           {users.map((user) => {
@@ -73,7 +76,7 @@ export const LoginPage = () => {
 
       <hr />
       <form className="flex column justify-center align-center">
-        <h5>Or login as Admin:</h5>
+        <label htmlFor="adminEmail">Or login as Admin:</label>
         <input
           type="email"
           name="adminEmail"
