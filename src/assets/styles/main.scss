@@ -1,6 +1,15 @@
+// Setup
+@import "setup/functions";
+@import "setup/mixins";
+@import "setup/typography";
+@import "setup/variables";
+
 // Basics
 @import "basics/helpers";
 @import "basics/base";
+@import "basics/forms";
 
 //Cmps
 @import "cmps/app-header";
+@import "cmps/desk/desk-list";
+@import "cmps/desk/desk-preview";

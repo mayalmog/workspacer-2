@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { setUsers, setLoggedinUser } from "../store/user/userSlice";
 import { userService } from "../services/user.service";
 export const LoginPage = () => {
-  const [user, setUser] = useState(null);
+  const [userName, setUserName] = useState(null);
   const [admin, setAdmin] = useState({
     id: "admin-1",
     fullname: "Admin",
@@ -24,12 +24,13 @@ export const LoginPage = () => {
 
   const handleChange = ({ target }) => {
     const { value } = target;
-    setUser(value);
+    setUserName(value);
   };
 
   const onLoggedinUser = (ev) => {
     ev.preventDefault();
     navigate("/desk");
+    const user = userService.onLoginUser(userName);
     dispatch(setLoggedinUser(user));
   };
 

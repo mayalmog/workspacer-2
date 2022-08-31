@@ -1,0 +1,33 @@
+// Colors
+//Bgcs
+$clr0: #ffffff; //Base
+$clr1: #f4f5f7; //Card hover bgc
+$clr2: #ebecf0; //List bgc
+
+//Font colors
+$clr3: #172b4d; //Main Font color
+$clr4: #5e6c84; //Sub font color
+$clr5: #97a0af; //Comments font color
+
+//buttons
+$clr6: #0079bf; //Confirmation btn
+$clr7: #0065ff; //Homepage btn
+$clr8: #091e42; //Action btn (+add alpha 0.04)
+$clr9: #5aac44; //Login btn
+
+//Lables (+card due dates)
+$green: #61bd4f;
+$yellow: #f2d600;
+$orange: #ff9f1a;
+$red: #eb5a46; // + Alert btn
+$purple: #c377e0;
+$blue: #0079bf;
+$sky: #0dc5e2;
+$lime: #51e898;
+$pink: #ff78cb;
+$black: #344563;
+
+// Breakpoints
+$mobile-breakpoint: 460px;
+$narrow-breakpoint: 720px;
+$normal-breakpoint: 960px;
