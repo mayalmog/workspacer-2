@@ -4,9 +4,13 @@ import { deskService } from "../../services/desk.service";
 export const deskSlice = createSlice({
   name: "desk",
   initialState: {
+    weeks: [],
     week: {},
   },
   reducers: {
+    setWeeks: (state) => {
+      state.weeks = deskService.getWeeks();
+    },
     setWeek: (state, action) => {
       state.week = deskService.getWeekByStartDate(action.payload);
     },
@@ -29,6 +33,6 @@ export const deskSlice = createSlice({
   },
 });
 
-export const { setWeek, bookDesk, cancelBooking } = deskSlice.actions;
+export const { setWeeks, setWeek, bookDesk, cancelBooking } = deskSlice.actions;
 
 export default deskSlice.reducer;

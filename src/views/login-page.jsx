@@ -54,8 +54,7 @@ export const LoginPage = () => {
 
   return (
     <section className="login-page flex column justify-center align-center">
-      <h1>Login to your account</h1>
-      <form className="flex column justify-center align-center">
+      <form className="user-login-form flex column justify-center align-center">
         <label htmlFor="users">Choose you name:</label>
         <select name="users" id="users" onChange={handleChange}>
           <option value="default">Choose user:</option>
@@ -67,7 +66,9 @@ export const LoginPage = () => {
             );
           })}
         </select>
-        <button onClick={onLoggedinUser}>Login</button>
+        <button className="btn btn-primary" onClick={onLoggedinUser}>
+          Login
+        </button>
       </form>
 
       <hr />
@@ -85,7 +86,9 @@ export const LoginPage = () => {
           placeholder="Password"
           onChange={handleChangeAdmin}
         />
-        <button onClick={onLoggedinAdmin}>Login as Admin</button>
+        <button className="btn btn-primary" onClick={onLoggedinAdmin}>
+          Login as Admin
+        </button>
       </form>
     </section>
   );

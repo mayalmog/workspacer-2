@@ -1,12 +1,5 @@
 import { weeks } from "../assets/data/weeks";
-import {
-  add,
-  format,
-  previousSunday,
-  isSunday,
-  nextSunday,
-  parseISO,
-} from "date-fns";
+import { add, format, previousSunday, isSunday, nextSunday } from "date-fns";
 import { utilService } from "./util.service";
 
 export const deskService = {
@@ -16,11 +9,16 @@ export const deskService = {
   bookDesk,
   getCancelledBooking,
   addNextWeek,
+  getWeeks,
 };
 
 let gWeeks = [];
 _createWeeks();
 getNewDaysArray();
+
+function getWeeks() {
+  return gWeeks;
+}
 
 function getWeekByStartDate(startDate) {
   return gWeeks.find((week) => week.startDate === startDate);
@@ -79,7 +77,7 @@ function addNextWeek() {
     startDate: getNextWeekStartDate(),
     days: getNewDaysArray(),
   };
-  gWeeks.push(newWeek);
+  gWeeks = [...gWeeks, newWeek];
 }
 
 function getNextWeekStartDate() {
