@@ -2,7 +2,7 @@
 
 This project is a desk booking system, with 8 desks and 10 users, plus admin.
 Users can login, book a desk by choosing a week and a weekday, and cancel their own bookings.
-Admin can login, book and also remove any booking, and add consecutive weeks.
+Admin can login, book and also remove any bookings, and add consecutive weeks.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
