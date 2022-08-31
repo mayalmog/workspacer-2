@@ -1,13 +1,13 @@
 import { users } from "../assets/data/users";
 
-import { storageService } from "./storage.service";
+// import { storageService } from "./storage.service";
 
 export const userService = {
   query,
   validateAdmin,
 };
 
-const KEY = "usersDB";
+// const KEY = "usersDB";
 let gUsers = [];
 _createUsers();
 
@@ -16,8 +16,11 @@ function query() {
   return gUsers;
 }
 
-function validateAdmin(user) {
-  if (user.email === "admin.fireblocks.com" && user.password === "123456789") {
+function validateAdmin(adminInput, passwordInput) {
+  if (
+    adminInput.email === "admin.fireblocks.com" &&
+    passwordInput.password === "123456789"
+  ) {
     return true;
   }
   return false;
@@ -33,6 +36,6 @@ function _createUsers() {
   gUsers = users;
 }
 
-function _saveUsersToStorage() {
-  storageService.saveToStorage(KEY, gUsers);
-}
+// function _saveUsersToStorage() {
+//   storageService.saveToStorage(KEY, gUsers);
+// }

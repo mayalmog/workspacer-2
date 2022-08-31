@@ -6,8 +6,12 @@ import { userService } from "../services/user.service";
 export const LoginPage = () => {
   const [user, setUser] = useState(null);
   const [admin, setAdmin] = useState({
-    name: "Admin",
+    id: "admin-1",
+    fullname: "Admin",
     email: "",
+    imgUrl: "",
+  });
+  const [adminPassword, setAdminPassword] = useState({
     password: "",
   });
   const users = useSelector((state) => state.user.users);
@@ -16,7 +20,7 @@ export const LoginPage = () => {
 
   useEffect(() => {
     dispatch(setUsers());
-  }, []);
+  }, [dispatch]);
 
   const handleChange = ({ target }) => {
     const { value } = target;
@@ -35,13 +39,13 @@ export const LoginPage = () => {
       setAdmin({ ...admin, email: value });
     }
     if (target.name === "adminPassword") {
-      setAdmin({ ...admin, password: value });
+      setAdminPassword({ ...adminPassword, password: value });
     }
   };
 
   const onLoggedinAdmin = (ev) => {
     ev.preventDefault();
-    if (userService.validateAdmin(admin)) {
+    if (userService.validateAdmin(admin, adminPassword)) {
       navigate("/desk");
       dispatch(setLoggedinUser(admin));
     }
