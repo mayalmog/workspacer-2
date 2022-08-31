@@ -23,7 +23,9 @@ export const AppHeader = () => {
       </div>
       {loggedinUser && (
         <div className="user-actions flex align-center justify-end full">
-          <MemberAvatar size={"32"} user={loggedinUser} />
+          {loggedinUser.email !== "admin@fireblocks.com" && (
+            <MemberAvatar size={"32"} user={loggedinUser} />
+          )}
           <p> {loggedinUser.fullname}</p>
           <button className="btn btn-primary" onClick={onLogout}>
             Logout

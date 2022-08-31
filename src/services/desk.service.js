@@ -44,7 +44,6 @@ function getCurrDay(week, currDayName) {
 }
 
 function bookDesk(week, currDay, updatedDesk) {
-  //TODO: enable admin to book multiple desks
   let updatedWeek = JSON.parse(JSON.stringify(week));
   updatedWeek.days.forEach((day, dayIdx) => {
     if (day.dayName === currDay.dayName) {

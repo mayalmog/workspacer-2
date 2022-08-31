@@ -1,8 +1,15 @@
 .desk-page {
   margin-top: 2rem;
   .select-container {
-    width: 40%;
+    width: 60%;
     margin-bottom: 1rem;
+    gap: 1rem;
+    .add-week-btn {
+      height: unset;
+    }
+    @include for-mobile-layout {
+      flex-direction: column;
+    }
   }
   .weekday-btns {
     gap: 1rem;
