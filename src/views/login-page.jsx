@@ -1,4 +1,4 @@
-import { Select } from "@mui/material";
+import { MenuItem, Select, InputLabel, FormControl } from "@mui/material";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -55,24 +55,23 @@ export const LoginPage = () => {
 
   return (
     <section className="login-page flex column justify-center align-center">
-      <form className="user-login-form flex column justify-center align-center">
-        {/* <label htmlFor="users">Choose you name:</label> */}
-        <h5>Choose you name:</h5>
+      <h5>Choose your name:</h5>
 
-        <select name="users" id="users" onChange={handleChange}>
-          <option value="default">Choose user:</option>
+      <FormControl fullWidth className="select">
+        <InputLabel id="users">User</InputLabel>
+        <Select name="users" id="users" label="User" onChange={handleChange}>
           {users.map((user) => {
             return (
-              <option value={user.fullname} key={user.id}>
+              <MenuItem value={user.fullname} key={user.id}>
                 {user.fullname}
-              </option>
+              </MenuItem>
             );
           })}
-        </select>
+        </Select>
         <button className="btn btn-primary" onClick={onLoggedinUser}>
           Login
         </button>
-      </form>
+      </FormControl>
 
       <hr />
       <form className="flex column justify-center align-center">

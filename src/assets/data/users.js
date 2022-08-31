@@ -37,26 +37,26 @@ export const users = [
   },
   {
     id: "user-7",
-    fullname: "Tove Jansson",
-    email: "tove.jansson@fireblocks.com",
+    fullname: "Angela Yu",
+    email: "angela@fireblocks.com",
     imgUrl: "",
   },
   {
     id: "user-8",
-    fullname: "Ruth Stout",
-    email: "ruth.stout@fireblocks.com",
+    fullname: "Vint Cerf",
+    email: "vint@fireblocks.com",
     imgUrl: "",
   },
   {
     id: "user-9",
-    fullname: "Linus Torvalds",
-    email: "linus.torvalds@fireblocks.com",
+    fullname: "Dan Abramov",
+    email: "dan@fireblocks.com",
     imgUrl: "",
   },
   {
     id: "user-10",
     fullname: "Satoshi Nakamoto",
-    email: "satoshi.nakamoto@fireblocks.com",
+    email: "satoshi@fireblocks.com",
     imgUrl: "",
   },
 ];

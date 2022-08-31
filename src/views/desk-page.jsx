@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { MenuItem, Select, InputLabel, FormControl } from "@mui/material";
+
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setWeeks, setWeek } from "../store/desk/deskSlice";
 import { deskService } from "../services/desk.service";
@@ -29,20 +31,20 @@ export const DeskPage = () => {
 
   return (
     <section className="desk-page flex column justify-center align-center">
-      <div>
-        <form className="flex  justify-center align-center">
-          <p htmlFor="weeks">Choose week by start date:</p>
-          <select name="weeks" id="weeks" onChange={handleChange}>
-            <option value="default">Choose week:</option>
+      <div className="select-container flex justify-center align-center">
+        <p>Choose week by start date:</p>
+        <FormControl fullWidth className="select">
+          <InputLabel id="weeks">Week</InputLabel>
+          <Select name="weeks" id="weeks" label="Week" onChange={handleChange}>
             {weeks.map((week) => {
               return (
-                <option value={week.startDate} key={week.id}>
+                <MenuItem value={week.startDate} key={week.id}>
                   {week.startDate}
-                </option>
+                </MenuItem>
               );
             })}
-          </select>
-        </form>
+          </Select>
+        </FormControl>
         {loggedinUser.email === "admin@fireblocks.com" && (
           <button className="btn btn-light" onClick={onAddNextWeek}>
             Add new week
@@ -63,7 +65,7 @@ export const DeskPage = () => {
             </button>
           ))}
       </div>
-      <p>{currDay.date}</p>
+      <p>Date: {currDay.date}</p>
       <DeskList currDay={currDay} />
     </section>
   );

@@ -1,6 +1,9 @@
 .desk-page {
   margin-top: 2rem;
-  //   padding-bottom: 2rem;
+  .select-container {
+    width: 40%;
+    margin-bottom: 1rem;
+  }
   .weekday-btns {
     gap: 1rem;
     flex-wrap: wrap;
