@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/workspacer-2/static/css/main.dc016ad6.css",
+    "main.js": "/workspacer-2/static/js/main.aeb1485d.js",
+    "static/media/OpenSans-Regular.ttf": "/workspacer-2/static/media/OpenSans-Regular.77c09223204154ae8d43.ttf",
+    "static/media/OpenSans-Bold.ttf": "/workspacer-2/static/media/OpenSans-Bold.fa428cdd2e334e2be904.ttf",
+    "static/media/OpenSans-Light.ttf": "/workspacer-2/static/media/OpenSans-Light.55d5015c3ced03510e63.ttf",
+    "static/media/OpenSans-SemiBold.ttf": "/workspacer-2/static/media/OpenSans-SemiBold.2f17aae884058c5a85df.ttf",
+    "static/media/workspacer-logo.svg": "/workspacer-2/static/media/workspacer-logo.9adc81fe5259d3eaaefb1220b22e2846.svg",
+    "index.html": "/workspacer-2/index.html",
+    "main.dc016ad6.css.map": "/workspacer-2/static/css/main.dc016ad6.css.map",
+    "main.aeb1485d.js.map": "/workspacer-2/static/js/main.aeb1485d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dc016ad6.css",
+    "static/js/main.aeb1485d.js"
+  ]
+}
