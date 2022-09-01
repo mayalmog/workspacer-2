@@ -1,18 +1,12 @@
 import { users } from "../assets/data/users";
 
-import { storageService } from "./storage.service";
-
 export const userService = {
   query,
   validateAdmin,
   onLoginUser,
   getUserByEmail,
-  // saveLoggedinUser,
-  getLoggedinUser,
 };
 
-const KEY = "usersDB";
-const loggedinUserKey = "loggedinUser";
 let gUsers = [];
 _createUsers();
 
@@ -28,14 +22,6 @@ function onLoginUser(userName) {
   return gUsers.find((user) => user.fullname === userName);
 }
 
-// function saveLoggedinUser(loggedinUser) {
-//   storageService.saveToStorage(loggedinUserKey, loggedinUser);
-// }
-
-function getLoggedinUser() {
-  return storageService.loadFromStorage(loggedinUserKey);
-}
-
 function validateAdmin(adminInput, passwordInput) {
   if (
     adminInput.email === "admin@fireblocks.com" &&
@@ -47,12 +33,5 @@ function validateAdmin(adminInput, passwordInput) {
 }
 
 function _createUsers() {
-  // gUsers = storageService.loadFromStorage(KEY);
-  // if (!gUsers || !gUsers.length) {
   gUsers = users;
-  // }
 }
-
-// function _saveUsersToStorage() {
-//   storageService.saveToStorage(KEY, gUsers);
-// }
