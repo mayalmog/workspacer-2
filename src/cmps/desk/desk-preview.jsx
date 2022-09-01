@@ -46,7 +46,10 @@ export const DeskPreview = ({ desk, currDay }) => {
       } desk-preview flex column align-center justify-center`}
     >
       <p className="desk-id">Desk-{desk.id}</p>
-      {desk.user && <MemberAvatar size={"32"} user={desk.user} />}
+      {desk.user && desk.user.email !== "admin@fireblocks.com" && (
+        <MemberAvatar size={"32"} user={desk.user} />
+      )}
+
       {desk.user && <p>{desk.user.fullname}</p>}
       {!desk.user && (
         <button className="btn btn-primary" onClick={onBookDesk}>

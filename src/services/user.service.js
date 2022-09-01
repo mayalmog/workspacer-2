@@ -7,7 +7,7 @@ export const userService = {
   validateAdmin,
   onLoginUser,
   getUserByEmail,
-  saveLoggedinUser,
+  // saveLoggedinUser,
   getLoggedinUser,
 };
 
@@ -28,9 +28,9 @@ function onLoginUser(userName) {
   return gUsers.find((user) => user.fullname === userName);
 }
 
-function saveLoggedinUser(loggedinUser) {
-  storageService.saveToStorage(loggedinUserKey, loggedinUser);
-}
+// function saveLoggedinUser(loggedinUser) {
+//   storageService.saveToStorage(loggedinUserKey, loggedinUser);
+// }
 
 function getLoggedinUser() {
   return storageService.loadFromStorage(loggedinUserKey);
@@ -47,12 +47,12 @@ function validateAdmin(adminInput, passwordInput) {
 }
 
 function _createUsers() {
-  gUsers = storageService.loadFromStorage(KEY);
-  if (!gUsers || !gUsers.length) {
-    gUsers = users;
-  }
+  // gUsers = storageService.loadFromStorage(KEY);
+  // if (!gUsers || !gUsers.length) {
+  gUsers = users;
+  // }
 }
 
-function _saveUsersToStorage() {
-  storageService.saveToStorage(KEY, gUsers);
-}
+// function _saveUsersToStorage() {
+//   storageService.saveToStorage(KEY, gUsers);
+// }

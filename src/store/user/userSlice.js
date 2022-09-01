@@ -14,7 +14,7 @@ export const userSlice = createSlice({
 
     setLoggedinUser: (state, action) => {
       state.loggedinUser = action.payload;
-      userService.saveLoggedinUser(action.payload);
+      // userService.saveLoggedinUser(action.payload);
     },
 
     logoutUser: (state) => {
