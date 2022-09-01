@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logoutUser } from "../store/user/userSlice";
 import { MemberAvatar } from "../cmps/member-avatar";
+import { Link } from "react-router-dom";
 
 import WorkspacerLogo from "../assets/img/workspacer-logo.svg";
 export const AppHeader = () => {
@@ -17,10 +18,12 @@ export const AppHeader = () => {
 
   return (
     <header className="app-header flex">
-      <div className="header-logo flex align-center">
-        <img src={WorkspacerLogo} alt="" />
-        <h1>Workspacer</h1>
-      </div>
+      <Link to="/">
+        <div className="header-logo flex align-center">
+          <img src={WorkspacerLogo} alt="" />
+          <h1>Workspacer</h1>
+        </div>
+      </Link>
       {loggedinUser && (
         <div className="user-actions flex align-center justify-end full">
           {loggedinUser.email !== "admin@fireblocks.com" && (
