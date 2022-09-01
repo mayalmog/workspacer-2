@@ -33,10 +33,12 @@ export const DeskPreview = ({ desk, currDay }) => {
     return desk.user?.fullname === loggedinUser.fullname;
   };
 
+  const isLoggedinUserAdmin = () => {
+    return loggedinUser.email === "admin@fireblocks.com";
+  };
+
   const isRemoveBtnShown = () => {
-    return (
-      desk.user === loggedinUser || desk.user?.email === "admin@fireblocks.com"
-    );
+    return desk.user && (isLoggedinUserAdmin() || isLoggedinUser());
   };
 
   return (
@@ -57,7 +59,7 @@ export const DeskPreview = ({ desk, currDay }) => {
         </button>
       )}
       {isRemoveBtnShown() && (
-        <button className="btn remove-btn" onClick={onRemoveBooking}>
+        <button className="btn btn-remove" onClick={onRemoveBooking}>
           Unbook
         </button>
       )}
