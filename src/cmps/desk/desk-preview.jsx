@@ -8,6 +8,7 @@ export const DeskPreview = ({ desk, currDay }) => {
 
   const onBookDesk = () => {
     if (isUserBooked()) {
+      return;
     } else {
       let updatedDesk = JSON.parse(JSON.stringify(desk));
       updatedDesk.user = loggedinUser;
@@ -36,6 +37,7 @@ export const DeskPreview = ({ desk, currDay }) => {
   };
 
   const isUserBooked = () => {
+    if (isLoggedinUserAdmin()) return false;
     return currDay.desks.some(
       (desk) => desk.user?.email === loggedinUser?.email
     );
@@ -53,7 +55,8 @@ export const DeskPreview = ({ desk, currDay }) => {
       )}
 
       {desk.user && <p>{desk.user.fullname}</p>}
-      {!desk.user && !isUserBooked() && (
+      {((!desk.user && isLoggedinUserAdmin()) ||
+        (!desk.user && !isUserBooked())) && (
         <button className="btn btn-primary" onClick={onBookDesk}>
           Book
         </button>
