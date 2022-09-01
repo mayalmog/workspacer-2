@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/workspacer-2/static/css/main.fe1802c0.css",
-    "main.js": "/workspacer-2/static/js/main.34aa8570.js",
+    "main.js": "/workspacer-2/static/js/main.5bd28ca6.js",
     "static/media/OpenSans-Regular.ttf": "/workspacer-2/static/media/OpenSans-Regular.77c09223204154ae8d43.ttf",
     "static/media/OpenSans-Bold.ttf": "/workspacer-2/static/media/OpenSans-Bold.fa428cdd2e334e2be904.ttf",
     "static/media/OpenSans-Light.ttf": "/workspacer-2/static/media/OpenSans-Light.55d5015c3ced03510e63.ttf",
@@ -9,10 +9,10 @@
     "static/media/workspacer-logo.svg": "/workspacer-2/static/media/workspacer-logo.9adc81fe5259d3eaaefb1220b22e2846.svg",
     "index.html": "/workspacer-2/index.html",
     "main.fe1802c0.css.map": "/workspacer-2/static/css/main.fe1802c0.css.map",
-    "main.34aa8570.js.map": "/workspacer-2/static/js/main.34aa8570.js.map"
+    "main.5bd28ca6.js.map": "/workspacer-2/static/js/main.5bd28ca6.js.map"
   },
   "entrypoints": [
     "static/css/main.fe1802c0.css",
-    "static/js/main.34aa8570.js"
+    "static/js/main.5bd28ca6.js"
   ]
 }
