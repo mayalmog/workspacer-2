@@ -19,9 +19,9 @@ export const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    dispatch(setUsers());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(setUsers());
+  // }, [dispatch]);
 
   const handleChange = ({ target }) => {
     const { value } = target;

@@ -30,7 +30,5 @@ main {
   display: flex;
   align-content: center;
   justify-content: center;
-  @include for-mobile-layout {
-    margin-bottom: 2rem;
-  }
+  margin-bottom: 2rem;
 }

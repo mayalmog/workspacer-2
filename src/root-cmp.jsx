@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { deskService } from "./services/desk.service.js";
 import { useDispatch } from "react-redux";
 import { setWeeks, setWeek } from "./store/desk/deskSlice";
+import { setUsers } from "./store/user/userSlice";
 
 import { AppHeader } from "./cmps/app-header";
 
@@ -15,6 +16,7 @@ export const RootCmp = () => {
     const weekStartDate = deskService.getWeekStartDate();
     dispatch(setWeeks());
     dispatch(setWeek(weekStartDate));
+    dispatch(setUsers());
   }, [dispatch]);
   return (
     <section className="root-cmp">

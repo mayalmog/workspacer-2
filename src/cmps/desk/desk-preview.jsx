@@ -9,7 +9,7 @@ export const DeskPreview = ({ desk, currDay }) => {
   const onBookDesk = () => {
     if (
       currDay.desks.some(
-        (desk) => desk.user && desk.user.email === loggedinUser.email
+        (desk) => desk.user && desk.user.email === loggedinUser?.email
       )
     ) {
       console.log("You already have a desk!");
@@ -30,11 +30,11 @@ export const DeskPreview = ({ desk, currDay }) => {
   };
 
   const isLoggedinUser = () => {
-    return desk.user?.fullname === loggedinUser.fullname;
+    return desk.user?.fullname === loggedinUser?.fullname;
   };
 
   const isLoggedinUserAdmin = () => {
-    return loggedinUser.email === "admin@fireblocks.com";
+    return loggedinUser?.email === "admin@fireblocks.com";
   };
 
   const isRemoveBtnShown = () => {
@@ -43,7 +43,7 @@ export const DeskPreview = ({ desk, currDay }) => {
 
   return (
     <section
-      className={`${desk.user ? "booked" : ""} ${
+      className={`desk-${desk.id} ${desk.user ? "booked" : ""} ${
         isLoggedinUser() ? "marked" : ""
       } desk-preview flex column align-center justify-center`}
     >
