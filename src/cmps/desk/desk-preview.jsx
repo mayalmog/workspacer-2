@@ -7,14 +7,8 @@ export const DeskPreview = ({ desk, currDay }) => {
   const dispatch = useDispatch();
 
   const onBookDesk = () => {
-    if (
-      currDay.desks.some(
-        (desk) => desk.user && desk.user.email === loggedinUser?.email
-      )
-    ) {
-      console.log("You already have a desk!");
+    if (isUserBooked()) {
     } else {
-      console.log("You haven't booked a desk yet, let's book it!");
       let updatedDesk = JSON.parse(JSON.stringify(desk));
       updatedDesk.user = loggedinUser;
       dispatch(bookDesk({ updatedDesk, currDay }));
@@ -41,6 +35,12 @@ export const DeskPreview = ({ desk, currDay }) => {
     return desk.user && (isLoggedinUserAdmin() || isLoggedinUser());
   };
 
+  const isUserBooked = () => {
+    return currDay.desks.some(
+      (desk) => desk.user?.email === loggedinUser?.email
+    );
+  };
+
   return (
     <section
       className={`desk-${desk.id} ${desk.user ? "booked" : ""} ${
@@ -53,7 +53,7 @@ export const DeskPreview = ({ desk, currDay }) => {
       )}
 
       {desk.user && <p>{desk.user.fullname}</p>}
-      {!desk.user && (
+      {!desk.user && !isUserBooked() && (
         <button className="btn btn-primary" onClick={onBookDesk}>
           Book
         </button>

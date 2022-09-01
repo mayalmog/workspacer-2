@@ -2,7 +2,7 @@ import { MenuItem, Select, InputLabel, FormControl } from "@mui/material";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setUsers, setLoggedinUser } from "../store/user/userSlice";
+import { setLoggedinUser } from "../store/user/userSlice";
 import { userService } from "../services/user.service";
 export const LoginPage = () => {
   const [userName, setUserName] = useState(null);
@@ -18,10 +18,6 @@ export const LoginPage = () => {
   const users = useSelector((state) => state.user.users);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   dispatch(setUsers());
-  // }, [dispatch]);
 
   const handleChange = ({ target }) => {
     const { value } = target;
